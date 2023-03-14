@@ -1,8 +1,10 @@
 package drivers;
 
 import com.codeborne.selenide.WebDriverProvider;
+import config.DeviceConfig;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.options.UiAutomator2Options;
+import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.WebDriver;
 
@@ -17,10 +19,11 @@ import static io.appium.java_client.remote.AutomationName.ANDROID_UIAUTOMATOR2;
 import static org.apache.commons.io.FileUtils.copyInputStreamToFile;
 
 public class MobileDriver implements WebDriverProvider {
+    static DeviceConfig config = ConfigFactory.create(DeviceConfig.class);
 
     public static URL getAppiumServerUrl() {
         try {
-            return new URL("http://localhost:4723/wd/hub");
+            return new URL(config.mobileUrl());
         } catch (MalformedURLException e) {
             throw new RuntimeException(e);
         }
@@ -32,15 +35,13 @@ public class MobileDriver implements WebDriverProvider {
         options.merge(capabilities);
 
         options.setAutomationName(ANDROID_UIAUTOMATOR2)
-                .setPlatformName("Android")
-                .setDeviceName("Pixel 2 API 26")
-                .setPlatformVersion("8.0")
-//                .setDeviceName("RFCR90ZMNQP")
-//                .setPlatformVersion("13.0")
+                .setPlatformName(config.getMobilePlatformName())
+                .setDeviceName(config.getDeviceName())
+                .setPlatformVersion(config.getDeviceVersion())
                 .setApp(getAppPath())
                 .setAppPackage("org.wikipedia.alpha")
                 .setAppActivity("org.wikipedia.main.MainActivity")
-                .setUiautomator2ServerLaunchTimeout(Duration.ofMillis(50000));
+                .setAvdLaunchTimeout(Duration.ofMillis(20000));
 
         return new AndroidDriver(getAppiumServerUrl(), options);
     }

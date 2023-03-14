@@ -3,8 +3,11 @@ package config;
 import org.aeonbits.owner.Config;
 
 import java.net.URL;
+
+@Config.LoadPolicy(Config.LoadType.MERGE)
 @Config.Sources({
-    "classpath:remote.properties"
+        "system:properties",
+        "classpath:${env}.properties"
 })
 public interface DeviceConfig extends Config {
 
@@ -34,4 +37,11 @@ public interface DeviceConfig extends Config {
 
     @Key("name")
     String testName();
+
+    @Key("mobilePlatformName")
+    String getMobilePlatformName();
+
+    @Key("mobile.url")
+    String mobileUrl();
+
 }

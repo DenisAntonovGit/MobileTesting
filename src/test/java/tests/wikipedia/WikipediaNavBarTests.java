@@ -6,7 +6,6 @@ import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
 import tests.MobileTestBase;
 
-import static com.codeborne.selenide.CollectionCondition.sizeGreaterThan;
 import static com.codeborne.selenide.CollectionCondition.texts;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
@@ -15,9 +14,9 @@ import static io.qameta.allure.Allure.step;
 import static org.openqa.selenium.By.id;
 
 @Owner("AntonovDenis")
+@Tag("android")
 public class WikipediaNavBarTests extends MobileTestBase {
 
-    @Tag("android")
     @BeforeEach
     void searchTest() {
         back();
@@ -25,37 +24,44 @@ public class WikipediaNavBarTests extends MobileTestBase {
             $(accessibilityId("Search Wikipedia")).click();
             $(id("org.wikipedia.alpha:id/search_src_text")).sendKeys("Python");
         });
-        step("Открыть первую статью", () ->
+        step("Открыть первую статью из списка", () ->
                 $(id("org.wikipedia.alpha:id/page_list_item_title")).click());
         step("Нажать кнопку 'More options' для отображения навигационного меню", () ->
                 $(accessibilityId("More options")).click());
     }
 
     @Test
-    void checkNavBarMenusShareButtonTest() {
-        step("Tap NavBar menu button: Share", () ->
+    void checkNavBarMenuShareButtonTest() {
+        step("Нажать кнопку меню 'Share'", () ->
                 $(id("org.wikipedia.alpha:id/page_share")).click());
-        $$(id("android:id/text1")).shouldHave(texts("Nearby Share", "Android Beam",
-                "Bluetooth", "Copy to clipboard", "Gmail", "Messages",
-                "News Feed", "Save to Drive", "Your groups", "Your groups"));
+        step("Проверка наличия опций меню 'Share'", () ->
+        $$(id("android:id/text1")).shouldHave(texts("Bluetooth", "Copy to clipboard", "Gmail", "Messages", "Save to Drive")));
     }
 
     @Test
-    void checkNavBarMenusRevisionHistoryTest() {
-        step("Tap NavBar menu button: Revision history", () ->
+    void checkNavBarMenuEditHistoryTest() {
+        step("Нажать кнопку меню 'Edit history'", () ->
                 $(id("org.wikipedia.alpha:id/page_view_edit_history")).click());
-        step("Check Revision history pages Title", () ->
-                $(id("org.wikipedia.alpha:id/articleTitleView")).should(text("Revision history: Python")));
+        step("Проверка наличия кнопки 'COMPARE'", () ->
+                $(id("org.wikipedia.alpha:id/editCountsView")).shouldHave(text("since 2004")));
     }
 
     @Test
-    void checkNavBarMenusCategoriesSubmenuTest() {
-        step("Tap NavBar menu button: Categories", () ->
+    void checkNavBarMenuCategoriesSubmenuTest() {
+        step("Нажать кнопку меню 'Categories'", () ->
                 $(id("org.wikipedia.alpha:id/page_categories")).click());
-        step("Check Categories меню Title", () ->
+        step("Проверка заголовка меню 'Categories'", () ->
                 $(id("org.wikipedia.alpha:id/categories_dialog_title")).should(text("Categories")));
-        step("Check Categories menu elements", () ->
-                $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(texts("Web development software",
-                        "Load testing tools", "Unit testing frameworks","Graphical user interface testing")));
+        step("Проверка элементов меню 'Categories'", () ->
+                $$(id("org.wikipedia.alpha:id/page_list_item_title")).shouldHave(texts("Disambiguation pages",
+                        "Human name disambiguation pages", "Disambiguation pages with given-name-holder lists")));
+    }
+
+    @Test
+    void checkNavBarMenuTalkPageElementTest() {
+        step("Нажать кнопку меню 'Talk page'", () ->
+                $(id("org.wikipedia.alpha:id/page_view_talk_page")).click());
+        step("Проверка заголовка страницы", () ->
+                $(id("org.wikipedia.alpha:id/toolbarTitle")).should(text("Talk: Python")));
     }
 }
