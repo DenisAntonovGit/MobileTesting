@@ -1,6 +1,8 @@
 package tests.wikipedia;
 
+import io.qameta.allure.Feature;
 import io.qameta.allure.Owner;
+import io.qameta.allure.Story;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Tag;
 import org.junit.jupiter.api.Test;
@@ -15,6 +17,8 @@ import static org.openqa.selenium.By.id;
 
 @Owner("AntonovDenis")
 @Tag("android")
+@Story("Навигация по меню")
+@Feature("Навигационное меню")
 public class WikipediaNavBarTests extends MobileTestBase {
 
     @BeforeEach
