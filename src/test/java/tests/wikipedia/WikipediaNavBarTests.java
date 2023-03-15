@@ -46,7 +46,7 @@ public class WikipediaNavBarTests extends MobileTestBase {
     void checkNavBarMenuEditHistoryTest() {
         step("Нажать кнопку меню 'Edit history'", () ->
                 $(id("org.wikipedia.alpha:id/page_view_edit_history")).click());
-        step("Проверка наличия кнопки 'COMPARE'", () ->
+        step("Проверка текста в открывшемся окне", () ->
                 $(id("org.wikipedia.alpha:id/editCountsView")).shouldHave(text("since 2004")));
     }
 

@@ -1,9 +1,9 @@
 {
   "base": {
-    "project": "some project",
-    "environment": "some env",
-    "comment": "some comment",
-    "reportLink": "",
+    "project": "WikipediaApp",
+    "environment": "Testing",
+    "comment": "NavigationMenuTests",
+    "reportLink": "${BUILD_URL}",
     "language": "en",
     "messenger": "telegram",
     "allureFolder": "allure-report/",
