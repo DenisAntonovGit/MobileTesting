@@ -1,8 +1,8 @@
 ## Проект по автоматизации тестирования для мобильного приложения Wikipedia
 
 <a name="Ссылка"></a>
-<p align="center">
-<img title="Wikipedia" src="Media/wikipedia_pic.png" width="400" height="450">
+<p align="left">
+<img title="Wikipedia" src="Media/wikipedia_pic.png" width="450" height="450">
 </p>
 
 <a target="_blank" href="https://www.wikipedia.org/">Веб-сайт Wikipedia</a>
