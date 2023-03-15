@@ -114,5 +114,5 @@ gradle clean test -DrunSetUp=remote -Denv=remote
 ### <img src="Media/browserstack.svg" width="25" height="25"  alt="Browserstack video"/></a> Видео о прохождении тестов
 
 <p align="center">
-<img title="Browserstack Video" src="Media/BrowserstackVideoGif.gif" width="700" height="500"  alt="video"> 
+<img title="Browserstack Video" src="Media/BrowserstackVideoGif.gif" width="450" height="500"  alt="video"> 
 </p>
