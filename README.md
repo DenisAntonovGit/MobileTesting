@@ -34,7 +34,7 @@
 <a id="verifications"></a>
 ## :clipboard: Реализованные проверки:
 
-# Web UI
+# Mobile testing
 - ✓ Провверка кнопки Share в меню навигации
 - ✓ Проверка кнопки Edit History в меню навигации
 - ✓ Провверка кнопки Categories в меню навигации
@@ -107,11 +107,11 @@ gradle clean test -DrunSetUp=remote -Denv=remote
 ## <img src="Media/Telegram.svg" width="25" height="25"  alt="Telegram"/></a> Уведомление в Telegram
 
 <p align="center">
-<img title="Telegram" src="Media/Telegram_notification.png">
+<img title="Telegram" src="Media/Telegram_notifications.png">
 </p>
 
 <a id="browserstack-video"></a>
-### <img src="ProjectMedia/browserstack.svg" width="25" height="25"  alt="Browserstack video"/></a> Видео о прохождении тестов
+### <img src="Media/browserstack.svg" width="25" height="25"  alt="Browserstack video"/></a> Видео о прохождении тестов
 
 <p align="center">
 <img title="Browserstack Video" src="Media/BrowserstackVideoGif.gif" width="700" height="500"  alt="video"> 
