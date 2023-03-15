@@ -1,3 +1,7 @@
+<a name="Ссылка"></a>
+<p align="center">
+<img title="Wikipedia" src="Media/wikipedia_pic.png">
+</p>
 # Проект по автоматизации тестирования для мобильного приложения Wikipedia
 <a target="_blank" href="https://www.wikipedia.org/">Веб-сайт Wikipedia</a>
 
