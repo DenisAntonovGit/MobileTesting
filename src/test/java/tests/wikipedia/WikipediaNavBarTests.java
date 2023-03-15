@@ -39,9 +39,7 @@ public class WikipediaNavBarTests extends MobileTestBase {
         step("Нажать кнопку меню 'Share'", () ->
                 $(id("org.wikipedia.alpha:id/page_share")).click());
         step("Проверка наличия опций меню 'Share'", () ->
-        $$(id("android:id/text1")).shouldHave(texts("Nearby Share", "Android Beam",
-                "Bluetooth", "Copy to clipboard", "Gmail", "Messages",
-                "News Feed", "Save to Drive", "Your groups", "Your groups")));
+        $$(id("android:id/text1")).shouldHave(texts("Nearby Share", "Android Beam", "Bluetooth", "Copy to clipboard", "Gmail", "Messages", "News Feed", "Save to Drive", "Your groups")));
     }
 
     @Test
