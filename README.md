@@ -40,7 +40,6 @@
 <a id="verifications"></a>
 ## :clipboard: Реализованные проверки:
 
-# Mobile testing
 - ✓ Провверка кнопки Share в меню навигации
 - ✓ Проверка кнопки Edit History в меню навигации
 - ✓ Провверка кнопки Categories в меню навигации
